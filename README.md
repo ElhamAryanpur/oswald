@@ -1,3 +1,5 @@
-# Elham's Svelte Template
+# OSWALD COVID-19 Prediction
 
-this template was made with custom theme and edits
+This project will use COVID-19 data and A.I. to make prediction about cases on future days.
+
+> `NOTE`: do `NOT` take predictions given by this project for granted. The accuracy of predictions is `NEVER` 100%. Use these data only to get a general idea.
