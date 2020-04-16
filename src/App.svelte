@@ -119,4 +119,12 @@
     <br />
     <tr>loading...</tr>
   {/if}
+  <tr style="text-align: center;">
+    <td colspan="2">
+      <h3>
+        For more information, click
+        <a href="https://github.com/ElhamAryanpur/oswald">here</a>
+      </h3>
+    </td>
+  </tr>
 </table>
