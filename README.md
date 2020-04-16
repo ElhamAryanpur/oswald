@@ -4,6 +4,8 @@
 
 This project will use COVID-19 data and A.I. to make prediction about cases on future days.
 
+Click [here](https://github.com/ElhamAryanpur/oswald) to access the site.
+
 > `NOTE`: do `NOT` take predictions given by this project for granted. The accuracy of predictions is `NEVER` 100%. Use these data only to get a general idea.
 
 ## About
