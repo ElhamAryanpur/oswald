@@ -1,10 +1,11 @@
 # OSWALD COVID-19 Prediction
 
+![Background](https://github.com/ElhamAryanpur/oswald/blob/master/public/background.png)
 ![CI](https://github.com/ElhamAryanpur/oswald/workflows/CI/badge.svg)
 
 This project will use COVID-19 data and A.I. to make prediction about cases on future days.
 
-Click [here](https://github.com/ElhamAryanpur/oswald) to access the site.
+Click [here](https://elhamaryanpur.github.io/oswald/) to access the site.
 
 > `NOTE`: do `NOT` take predictions given by this project for granted. The accuracy of predictions is `NEVER` 100%. Use these data only to get a general idea.
 
@@ -42,3 +43,8 @@ This project is [MIT](https://opensource.org/licenses/MIT) licensed. See [LICENC
 ## Shoutout
 
 Shoutout to amazing [Altheatear](https://www.reddit.com/user/Altheatear/) for the name, [Papa Parse](https://www.papaparse.com/) for easy `CSV` parsing, [ML.js](https://github.com/mljs/ml) for `powerful machine learning` in the `browser`, And [Svelte](https://svelte.dev/) for allowing `reactive` [SPA webapp](https://en.wikipedia.org/wiki/Single-page_application) without extra `BS`! And not to forget [Johns Hopkins School of Public Health](https://data.humdata.org/organization/e5d3aa82-538e-4dae-94c9-010cc8ecbbc8) for their `contribution` on making data `public` and `daily updated`.
+
+## Translation Contributors
+
+* Turkish: [Tamana Aryanpur](https://www.instagram.com/taman.aryanpur)
+* Dutch: [Delano Gracia](https://www.instagram.com/delanogarcia_)

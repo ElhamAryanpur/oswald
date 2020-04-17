@@ -5,7 +5,7 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv public",
-    "compile ml": "npx browserify src/mlregpol.js -o ./ml.js"
+    "compile ml": "npx browserify src/mlregpol.js -o ./public/ml.js"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^11.0.0",
