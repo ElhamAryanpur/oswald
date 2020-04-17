@@ -1,6 +1,7 @@
 <script>
   let DATA = []
   let load = false
+  let lang = 'en'
   let res
   let DAY = 0
   let AI
@@ -60,6 +61,18 @@
     const difference = Math.abs(prediction - today)
     return difference
   }
+
+  function trans(textData = {}, lang = 'en') {
+    if (lang == 'en') {
+      return textData.en
+    } else if (lang == 'fa') {
+      return textData.af
+    } else if (lang == 'tr') {
+      return textData.tr
+    } else if (lang == 'dt') {
+      return textData.dt
+    }
+  }
 </script>
 
 <style>
@@ -75,7 +88,9 @@
     font-weight: bold;
   }
 
-  input {
+  input,
+  select,
+  option {
     font-family: inherit;
     font-size: inherit;
     padding: 0.4em;
@@ -92,11 +107,15 @@
 <table>
   <tr style="text-align: center;">
     <td colspan="2">
-      <h1>OSWALD PREDICTOR</h1>
+      <h1>
+        {trans({ en: 'OSWALD PREDICTOR', af: 'OSWALD تخمین کننده', tr: 'OSWALD BELİRLEYİCİSİ', dt: 'OSWALD PREDICTOR' }, lang)}
+      </h1>
     </td>
   </tr>
   <tr class="style">
-    <td class="style">Days:</td>
+    <td class="style">
+      {trans({ en: 'Day:', af: 'روز', tr: 'Gün:', dt: 'Dag:' }, lang)}
+    </td>
     <td class="style">
       <input type="number" placeholder="Day" bind:value={DAY} />
     </td>
@@ -104,26 +123,45 @@
 
   {#if load === true}
     <tr class="style">
-      <td class="style">Predicted Recoveries:</td>
+      <td class="style">
+        {trans({ en: 'Predicted Recoveries:', af: 'تخمین صحت یافته', tr: 'İyileşen hasta saysı:', dt: 'Hersteld (voorspelt):' }, lang)}
+      </td>
       <td class="style">{predict(DAY)}</td>
     </tr>
     <tr class="style">
-      <td class="style">Today:</td>
+      <td class="style">
+        {trans({ en: 'Today:', af: 'امروز', tr: 'Bugün:', dt: 'Vandaag:' }, lang)}
+      </td>
       <td class="style">{DATA[DATA.length - 1]}</td>
     </tr>
     <tr class="style">
-      <td class="style">Difference:</td>
+      <td class="style">
+        {trans({ en: 'Difference:', af: 'فرق', tr: 'Fark:', dt: 'Verschil:' }, lang)}
+      </td>
       <td class="style">{diff(DAY)}</td>
     </tr>
   {:else}
     <br />
     <tr>loading...</tr>
   {/if}
+  <tr>
+    <td>
+      <select bind:value={lang} style="height: 50px;">
+        <option value="en">English</option>
+        <option value="tr">Türkçe</option>
+        <option value="fa">فارسی</option>
+        <option value="dt">Dutch</option>
+      </select>
+    </td>
+    <td />
+  </tr>
   <tr style="text-align: center;">
     <td colspan="2">
       <h3>
-        For more information, click
-        <a href="https://github.com/ElhamAryanpur/oswald">here</a>
+        {trans({ en: 'For more information, click', af: 'برای معلومات بیشتر ', tr: 'Daha fazla bilgi için', dt: 'Voor meer informatie, klik ' }, lang)}
+        <a href="https://github.com/ElhamAryanpur/oswald">
+          {trans({ en: 'here', af: 'اینجا کلیک کنید', tr: 'buraya Tıkla', dt: 'hier' }, lang)}
+        </a>
       </h3>
     </td>
   </tr>
