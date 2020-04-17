@@ -71,6 +71,8 @@
       return textData.tr
     } else if (lang == 'dt') {
       return textData.dt
+    } else if (lang == 'ab') {
+      return textData.ab
     }
   }
 </script>
@@ -108,13 +110,13 @@
   <tr style="text-align: center;">
     <td colspan="2">
       <h1>
-        {trans({ en: 'OSWALD PREDICTOR', af: 'OSWALD تخمین کننده', tr: 'OSWALD BELİRLEYİCİSİ', dt: 'OSWALD PREDICTOR' }, lang)}
+        {trans({ en: 'OSWALD PREDICTOR', ab: "PARASHIKUESI OSWALD", af: 'OSWALD تخمین کننده', tr: 'OSWALD BELİRLEYİCİSİ', dt: 'OSWALD PREDICTOR' }, lang)}
       </h1>
     </td>
   </tr>
   <tr class="style">
     <td class="style">
-      {trans({ en: 'Day:', af: 'روز', tr: 'Gün:', dt: 'Dag:' }, lang)}
+      {trans({ en: 'Day:', ab: "Dita:", af: 'روز', tr: 'Gün:', dt: 'Dag:' }, lang)}
     </td>
     <td class="style">
       <input type="number" placeholder="Day" bind:value={DAY} />
@@ -124,19 +126,19 @@
   {#if load === true}
     <tr class="style">
       <td class="style">
-        {trans({ en: 'Predicted Recoveries:', af: 'تخمین صحت یافته', tr: 'İyileşen hasta saysı:', dt: 'Hersteld (voorspelt):' }, lang)}
+        {trans({ en: 'Predicted Recoveries:', ab: "Rikuperimet e parashikuara:", af: 'تخمین صحت یافته', tr: 'İyileşen hasta saysı:', dt: 'Hersteld (voorspelt):' }, lang)}
       </td>
       <td class="style">{predict(DAY)}</td>
     </tr>
     <tr class="style">
       <td class="style">
-        {trans({ en: 'Today:', af: 'امروز', tr: 'Bugün:', dt: 'Vandaag:' }, lang)}
+        {trans({ en: 'Today:', ab: "Sot:", af: 'امروز', tr: 'Bugün:', dt: 'Vandaag:' }, lang)}
       </td>
       <td class="style">{DATA[DATA.length - 1]}</td>
     </tr>
     <tr class="style">
       <td class="style">
-        {trans({ en: 'Difference:', af: 'فرق', tr: 'Fark:', dt: 'Verschil:' }, lang)}
+        {trans({ en: 'Difference:', ab: "Diferenca:", af: 'فرق', tr: 'Fark:', dt: 'Verschil:' }, lang)}
       </td>
       <td class="style">{diff(DAY)}</td>
     </tr>
@@ -147,10 +149,11 @@
   <tr>
     <td>
       <select bind:value={lang} style="height: 50px;">
+        <option value="dt">Dutch</option>
         <option value="en">English</option>
+        <option value="ab">Shqip/Albainian</option>
         <option value="tr">Türkçe</option>
         <option value="fa">فارسی</option>
-        <option value="dt">Dutch</option>
       </select>
     </td>
     <td />
@@ -158,9 +161,9 @@
   <tr style="text-align: center;">
     <td colspan="2">
       <h3>
-        {trans({ en: 'For more information, click', af: 'برای معلومات بیشتر ', tr: 'Daha fazla bilgi için', dt: 'Voor meer informatie, klik ' }, lang)}
+        {trans({ en: 'For more information, click', ab: "Për më shumë informacion, kliko", af: 'برای معلومات بیشتر ', tr: 'Daha fazla bilgi için', dt: 'Voor meer informatie, klik ' }, lang)}
         <a href="https://github.com/ElhamAryanpur/oswald">
-          {trans({ en: 'here', af: 'اینجا کلیک کنید', tr: 'buraya Tıkla', dt: 'hier' }, lang)}
+          {trans({ en: 'here', ab: "këtu", af: 'اینجا کلیک کنید', tr: 'buraya Tıkla', dt: 'hier' }, lang)}
         </a>
       </h3>
     </td>

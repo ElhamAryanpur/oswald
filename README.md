@@ -2,7 +2,7 @@
 
 ![Background](https://github.com/ElhamAryanpur/oswald/blob/master/public/background.png)
 
-![CI](https://github.com/ElhamAryanpur/oswald/workflows/CI/badge.svg)
+![Build](https://github.com/ElhamAryanpur/oswald/workflows/CI/badge.svg)
 
 This project will use COVID-19 data and A.I. to make prediction about cases on future days.
 
@@ -49,3 +49,4 @@ Shoutout to amazing [Altheatear](https://www.reddit.com/user/Altheatear/) for th
 
 * Turkish: [Tamana Aryanpur](https://www.instagram.com/taman.aryanpur)
 * Dutch: [Delano Gracia](https://www.instagram.com/delanogarcia_)
+* Albainian: [Altheatear](https://www.reddit.com/user/Altheatear/)
