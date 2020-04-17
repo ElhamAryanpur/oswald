@@ -151,7 +151,7 @@
       <select bind:value={lang} style="height: 50px;">
         <option value="dt">Dutch</option>
         <option value="en">English</option>
-        <option value="ab">Shqip/Albainian</option>
+        <option value="ab">Shqip/Albanian</option>
         <option value="tr">Türkçe</option>
         <option value="fa">فارسی</option>
       </select>

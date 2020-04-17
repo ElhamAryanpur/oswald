@@ -49,4 +49,4 @@ Shoutout to amazing [Altheatear](https://www.reddit.com/user/Altheatear/) for th
 
 * Turkish: [Tamana Aryanpur](https://www.instagram.com/taman.aryanpur)
 * Dutch: [Delano Gracia](https://www.instagram.com/delanogarcia_)
-* Albainian: [Altheatear](https://www.reddit.com/user/Altheatear/)
+* Albanian: [Altheatear](https://www.reddit.com/user/Altheatear/)
