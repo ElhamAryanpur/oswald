@@ -4,6 +4,10 @@
 
 ![Build](https://github.com/ElhamAryanpur/oswald/workflows/CI/badge.svg)
 
+[Shqip/Albanian](https://github.com/ElhamAryanpur/oswald/blob/master/public/README_AB.md)
+|
+[فارسی](https://github.com/ElhamAryanpur/oswald/blob/master/public/README_FA.md)
+
 This project will use COVID-19 data and A.I. to make prediction about cases on future days.
 
 Click [here](https://elhamaryanpur.github.io/oswald/) to access the site.
@@ -47,6 +51,6 @@ Shoutout to amazing [Altheatear](https://www.reddit.com/user/Altheatear/) for th
 
 ## Translation Contributors
 
-* Turkish: [Tamana Aryanpur](https://www.instagram.com/taman.aryanpur)
+* Türkçe: [Tamana Aryanpur](https://www.instagram.com/taman.aryanpur)
 * Dutch: [Delano Gracia](https://www.instagram.com/delanogarcia_)
-* Albanian: [Altheatear](https://www.reddit.com/user/Altheatear/)
+* Shqip/Albanian: [Altheatear](https://www.reddit.com/user/Altheatear/)
