@@ -1,6 +1,7 @@
 # OSWALD COVID-19 Prediction
 
 ![Background](https://github.com/ElhamAryanpur/oswald/blob/master/public/background.png)
+
 ![CI](https://github.com/ElhamAryanpur/oswald/workflows/CI/badge.svg)
 
 This project will use COVID-19 data and A.I. to make prediction about cases on future days.
