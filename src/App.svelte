@@ -1,65 +1,57 @@
 <script>
-  let DATA = []
+  let RECOVER_AI, DEATH_AI, CONFIRM_AI;
   let load = false
   let lang = 'en'
-  let res
   let DAY = 0
-  let AI
 
-  Papa.parse(
-    'https://data.humdata.org/hxlproxy/api/data-preview.csv?url=https%3A%2F%2Fraw.githubusercontent.com%2FCSSEGISandData%2FCOVID-19%2Fmaster%2Fcsse_covid_19_data%2Fcsse_covid_19_time_series%2Ftime_series_covid19_recovered_global.csv&filename=time_series_covid19_recovered_global.csv',
-    {
-      download: true,
-      complete: result => {
-        for (var i = 0; i < result.data.length - 1; i++) {
-          DATA.push(result.data[i])
-        }
-        DATA = DATA.splice(1, DATA.length)
-        cleanup()
+  function init(url="", callback){
+    var data = []
+    Papa.parse(url,
+      {
+        download: true,
+        complete: result => {
+          for (var i = 0; i < result.data.length - 1; i++) {
+            data.push(result.data[i])
+          }
+          data = data.splice(1, data.length)
+          data = cleanup(data)
+          train(data, callback)
+        },
       },
-    },
-  )
+    )
+  }
 
-  function cleanup() {
+  function cleanup(data) {
     const cases = []
 
-    for (var i = 2; i < DATA[0].length; i++) {
+    for (var i = 2; i < data[0].length; i++) {
       const amount = []
-      for (var o = 0; o < DATA.length; o++) {
+      for (var o = 0; o < data.length; o++) {
         try {
-          //console.log(amount + parseInt(DATA[o][i]))
-          amount.push(parseInt(DATA[o][i]))
+          amount.push(parseInt(data[o][i]))
         } catch {
-          console.log(DATA[o][i])
+          console.log(data[o][i])
         }
       }
       cases.push(amount.reduce((a, b) => a + b, 0))
     }
 
-    DATA = cases
-    train()
+    return cases
   }
 
-  function train() {
+  function train(data, callback) {
     const x = []
-    for (var i = 0; i < DATA.length; i++) {
+    for (var i = 0; i < data.length; i++) {
       x.push(i + 1)
     }
 
-    AI = new window.PR(x, DATA, 1)
-    DAY = DATA.length + 1
-    load = true
+    var ai = new window.PR(x, data, 1)
+    DAY = data.length + 1
+    callback(ai)
   }
 
-  function predict(day = 0) {
-    return Math.round(AI.predict(day))
-  }
-
-  function diff(day) {
-    const prediction = predict(day)
-    const today = DATA[DATA.length - 1]
-    const difference = Math.abs(prediction - today)
-    return difference
+  function predict(ai, day = 0) {
+    return Math.round(ai.predict(day))
   }
 
   function trans(textData = {}, lang = 'en') {
@@ -75,6 +67,25 @@
       return textData.ab
     }
   }
+
+  init(
+    'https://data.humdata.org/hxlproxy/api/data-preview.csv?url=https%3A%2F%2Fraw.githubusercontent.com%2FCSSEGISandData%2FCOVID-19%2Fmaster%2Fcsse_covid_19_data%2Fcsse_covid_19_time_series%2Ftime_series_covid19_recovered_global.csv&filename=time_series_covid19_recovered_global.csv',
+  (ai)=>{
+    RECOVER_AI = ai;
+    init(
+      'https://data.humdata.org/hxlproxy/api/data-preview.csv?url=https%3A%2F%2Fraw.githubusercontent.com%2FCSSEGISandData%2FCOVID-19%2Fmaster%2Fcsse_covid_19_data%2Fcsse_covid_19_time_series%2Ftime_series_covid19_deaths_global.csv&filename=time_series_covid19_deaths_global.csv',
+      (dai)=>{
+        DEATH_AI = dai;
+        init(
+          'https://data.humdata.org/hxlproxy/api/data-preview.csv?url=https%3A%2F%2Fraw.githubusercontent.com%2FCSSEGISandData%2FCOVID-19%2Fmaster%2Fcsse_covid_19_data%2Fcsse_covid_19_time_series%2Ftime_series_covid19_confirmed_global.csv&filename=time_series_covid19_confirmed_global.csv',
+          (cai)=>{
+            CONFIRM_AI = cai;
+            load = true
+          }
+        )
+      }
+    )
+  });
 </script>
 
 <style>
@@ -126,21 +137,21 @@
   {#if load === true}
     <tr class="style">
       <td class="style">
+        {trans({ en: 'Predicted Cases:', ab: ":", af: 'تخمین مریزان', tr: ':', dt: 'Voorspelde gevallen:' }, lang)}
+      </td>
+      <td class="style">{predict(CONFIRM_AI, DAY)}</td>
+    </tr>
+    <tr class="style">
+      <td class="style">
         {trans({ en: 'Predicted Recoveries:', ab: "Rikuperimet e parashikuara:", af: 'تخمین صحت یافته', tr: 'İyileşen hasta saysı:', dt: 'Hersteld (voorspelt):' }, lang)}
       </td>
-      <td class="style">{predict(DAY)}</td>
+      <td class="style">{predict(RECOVER_AI, DAY)}</td>
     </tr>
     <tr class="style">
       <td class="style">
-        {trans({ en: 'Today:', ab: "Sot:", af: 'امروز', tr: 'Bugün:', dt: 'Vandaag:' }, lang)}
+        {trans({ en: 'Predicted Deaths:', ab: ":", af: 'تخمین مرگ ها', tr: ':', dt: 'Doden (voorspelt):' }, lang)}
       </td>
-      <td class="style">{DATA[DATA.length - 1]}</td>
-    </tr>
-    <tr class="style">
-      <td class="style">
-        {trans({ en: 'Difference:', ab: "Diferenca:", af: 'فرق', tr: 'Fark:', dt: 'Verschil:' }, lang)}
-      </td>
-      <td class="style">{diff(DAY)}</td>
+      <td class="style">{predict(DEATH_AI, DAY)}</td>
     </tr>
   {:else}
     <br />

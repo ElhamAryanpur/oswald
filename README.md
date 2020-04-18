@@ -5,8 +5,6 @@
 ![Build](https://github.com/ElhamAryanpur/oswald/workflows/CI/badge.svg)
 
 [Shqip/Albanian](https://github.com/ElhamAryanpur/oswald/blob/master/public/README_AB.md)
-|
-[فارسی](https://github.com/ElhamAryanpur/oswald/blob/master/public/README_FA.md)
 
 This project will use COVID-19 data and A.I. to make prediction about cases on future days.
 
