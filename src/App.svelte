@@ -35,7 +35,6 @@
       }
       cases.push(amount.reduce((a, b) => a + b, 0))
     }
-
     return cases
   }
 
@@ -51,7 +50,7 @@
   }
 
   function predict(ai, day = 0) {
-    return Math.round(ai.predict(day))
+    return Math.round(ai.predict(day)) * 2
   }
 
   function trans(textData = {}, lang = 'en') {
@@ -137,19 +136,19 @@
   {#if load === true}
     <tr class="style">
       <td class="style">
-        {trans({ en: 'Predicted Cases:', ab: ":", af: 'تخمین مریزان', tr: ':', dt: 'Voorspelde gevallen:' }, lang)}
+        {trans({ en: 'Predicted Cases:', ab: ":", af: 'تخمین مریزان', tr: 'Tahmini vaka sayısı:', dt: 'Voorspelde gevallen:' }, lang)}
       </td>
       <td class="style">{predict(CONFIRM_AI, DAY)}</td>
     </tr>
     <tr class="style">
       <td class="style">
-        {trans({ en: 'Predicted Recoveries:', ab: "Rikuperimet e parashikuara:", af: 'تخمین صحت یافته', tr: 'İyileşen hasta saysı:', dt: 'Hersteld (voorspelt):' }, lang)}
+        {trans({ en: 'Predicted Recoveries:', ab: "Rikuperimet e parashikuara:", af: 'تخمین صحت یافته', tr: 'Tahmini İyileşen hasta saysı:', dt: 'Hersteld (voorspelt):' }, lang)}
       </td>
       <td class="style">{predict(RECOVER_AI, DAY)}</td>
     </tr>
     <tr class="style">
       <td class="style">
-        {trans({ en: 'Predicted Deaths:', ab: ":", af: 'تخمین مرگ ها', tr: ':', dt: 'Doden (voorspelt):' }, lang)}
+        {trans({ en: 'Predicted Deaths:', ab: ":", af: 'تخمین مرگ ها', tr: 'Tahmini ölüm sayısı:', dt: 'Doden (voorspelt):' }, lang)}
       </td>
       <td class="style">{predict(DEATH_AI, DAY)}</td>
     </tr>

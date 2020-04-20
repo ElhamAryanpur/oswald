@@ -20,8 +20,6 @@ The `Data` is taken from [here](https://data.humdata.org/dataset/novel-coronavir
 
 Then the `inputs` are linked with `prediction` for `live` results.
 
-Currently, only `recovery` cases (for positivity reasons 😉) are supported. Will add `Death` and `Active` predictions later on.
-
 ## Manual
 
 To `reproduce` this project locally:
